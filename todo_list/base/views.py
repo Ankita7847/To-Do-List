@@ -50,7 +50,7 @@ class RegisterPage(FormView):
 
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
-    context_object_name= 'tasks'
+    context_object_name = 'tasks'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,9 +62,9 @@ class TaskList(LoginRequiredMixin, ListView):
             context['tasks'] = context['tasks'].filter(
                 title__startswith=search_input)
             
-            context['search_input'] = search_input
+        context['search_input'] = search_input
             
-            return context
+        return context
 
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
